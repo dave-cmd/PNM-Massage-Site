@@ -5,7 +5,7 @@
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
+/* NAVBAR*/
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -59,8 +59,22 @@
     border-radius: 3px;
 
 }
+@media (max-width: 700px){
+    .brand-name{
+        font-size: 1.25rem;
+        margin: 0.4rem ;
+    }
+    .navbar-links li a{
+        font-size: 0.75rem;
+    }
+
+}
 
 @media (max-width: 400px){
+    .brand-name{
+        font-size: 1rem;
+        margin: 0.25rem ;
+    }
     .toogle-menu{
         display: flex;
     }
@@ -84,6 +98,7 @@
     }
     .navbar-links li a {
         padding-inline: .5rem 1rem;
+        font-size: 0.5rem;
     }
     /* we use javascript to implement the toggle effect of the humburger menu */
     .navbar-links.active{
@@ -92,8 +107,33 @@
     
 }
 
-/*Footer*/
 
+/*SLIDER*/
+.slider{
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
+.slider img{
+	width: 100%;
+	max-height: 100vh;
+	
+}
+.dimmer{
+	filter: brightness(60%);
+
+}
+
+.slider-text{
+	color: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+
+/*FOOTER*/
 .footer{
 	background-color: black;
 	color: white;
@@ -136,7 +176,9 @@ hr{
 	width: 80%;
 	height: 0.04rem;
 	border: none;
-	margin-bottom: 0.5rem;
+	margin: auto;
+	margin-top: 1rem ;
+	margin-bottom: 1rem; 
 }
 
 .footer-title{
@@ -177,7 +219,8 @@ hr{
 	border-radius: 5px;
 }
 hr{
-	margin-bottom: 0.25rem;
+	margin-top: 0.5rem ;
+	margin-bottom: 0.5rem; 
 }
 
 .footer-title{
@@ -189,4 +232,6 @@ hr{
 	
 }
 }
+
+
 
