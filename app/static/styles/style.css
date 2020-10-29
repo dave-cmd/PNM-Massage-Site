@@ -104,6 +104,18 @@
     .navbar-links.active{
         display: flex;
     }
+    .toogle-menu .bar{
+        height: 2px;
+        border-radius: 1px;
+        }
+        .toogle-menu{
+        /* positioned absolutely to avoid messing with the flow of the elements*/
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 15px;
+        height: 10px;
+    
+        }
     
 }
 
@@ -120,7 +132,7 @@
 	
 }
 .dimmer{
-	filter: brightness(60%);
+	filter: brightness(40%);
 
 }
 
@@ -130,6 +142,11 @@
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+@media(max-width: 500px){
+	.slider-text{
+		font-size: .45rem;
+	}
 }
 
 
