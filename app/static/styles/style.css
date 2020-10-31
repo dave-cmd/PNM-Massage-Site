@@ -250,5 +250,49 @@ hr{
 }
 }
 
+/*TERMS AND CONDITIONS */
+.terms-container{
+	padding: 1rem;
+	color: rgba(0,0,0,0.7);
+	width: 100%;
 
+}
+.terms-title{
+	width: 60%;
+	margin: auto;
+	text-align: center;
+}
+.terms-intro{
+	width: 70%;
+	margin: auto;
+}
+
+.tab{
+	width: 80%;
+	margin: auto;
+}
+.tab p {
+	margin-left: 2rem;
+}
+
+@media(max-width: 800px){
+	.terms-container{
+		padding: 0.75rem;
+		font-size: 0.75rem;
+	}
+	.tab p {
+		margin-left: 1rem;
+	}
+
+}
+
+@media(max-width: 500px){
+	.terms-container{
+		padding: 0.5rem;
+		font-size: 0.55rem;
+	}
+	.tab p {
+		margin-left: .5rem;
+	}
+}
 
