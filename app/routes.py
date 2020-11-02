@@ -6,3 +6,7 @@ def home():
 @app.route("/terms-and-conditions")
 def terms():
     return render_template("terms.html")
+
+@app.route("/packages")
+def packages():
+    return render_template("packages.html")
