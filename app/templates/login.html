@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style="color: rgba(0,0,0,0.3); margin: 3rem;">Sign In</h1>
+{% with messages = get_flashed_messages()%}
+    {% for message in messages %}
+        <p>{{message}}</p>
+    {% endfor %}
+{% endwith %}
+<div style="width: 60%;
+            height: 100%;
+            padding: 2rem;
+            margin: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            border-radius: 1rem">
+    <form action='#' method="post" novalidate style="width:80%;
+                                                    margin:auto; 
+                                                    justify-content:center;
+                                                    align-items: center;">
+
+        {{ form.hidden_tag() }}
+        <p style="margin: 2rem;">
+            {{ form.username.label}}
+            <br>
+            {{ form.username(size=32)}}
+            <br>
+            {% for error in form.username.errors %}
+                <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+        </p>
+        <p style="margin: 2rem;">
+            {{ form.password.label }}
+            <br>
+            {{ form.password(size=32)}}
+            <br>
+            {% for error in form.password.errors %}
+                <span style="color: red;">[{{error}}]</span>
+            {% endfor %}
+        </p>
+        <p style="margin: 2rem;">
+            {{form.remember_me()}}
+            {{ form.remember_me.label }}
+        </p>
+
+        <p style="margin: 2rem;">
+            {{ form.submit() }}
+        </p>
+    
+
+    </form>
+</div>
+
+{% endblock %}
