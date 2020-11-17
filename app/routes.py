@@ -5,6 +5,9 @@ from app.forms import LoginForm, RegistrationForm, UpdateForm
 from flask import render_template, url_for, redirect,jsonify, flash, request
 from flask_login import login_user,logout_user,  current_user, login_required
 from werkzeug.urls import url_parse
+import secrets
+from PIL import Image
+import os
 
 
 @app.route("/terms-and-conditions")
@@ -33,6 +36,8 @@ def home():
 	print(posts)
 
 	return render_template('home.html', title="Home Page", user=user, posts=posts)
+
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -66,6 +71,8 @@ def login():
 def logout():
 	logout_user()
 	return redirect(url_for('login'))
+
+
 
 @app.route('/admin', methods=['POST', 'GET'])
 @login_required
@@ -106,10 +113,23 @@ def registration():
 	return render_template("registration.html", title="Registration Page", form = form)
 
 
+#Save profile picture logic
+def save_picture(form_picture):
+	random_hex = secrets.token_hex(8)
+	_, f_ext = os.path.splitext(form_picture.filename)
+	picture_fn = random_hex + f_ext
+	picture_path = os.path.join(app.root_path, 'static/profile_images', picture_fn)
+
+	#Resize Image
+	output_size = (250, 250)
+	i = Image.open(form_picture)
+	i.thumbnail(output_size)
+	i.save(picture_path)
+	return picture_fn
+
 
 @app.route('/profile', methods=['GET', 'POST'])
 @login_required
-
 def profile():
 	if not current_user.is_authenticated:
 		return redirect('login')
@@ -117,6 +137,11 @@ def profile():
 	form = UpdateForm()
 
 	if form.validate_on_submit():
+
+		if form.picture.data:
+			flash("Picture Data Available!!")
+			picture_file = save_picture(form.picture.data)
+			current_user.image_pic = picture_file
 
 		current_user.firstname = form.firstname.data
 		current_user.lastname = form.lastname.data
@@ -132,6 +157,7 @@ def profile():
 		form.lastname.data = current_user.lastname
 		form.phone_number.data = current_user.phone_number
 		form.email.data = current_user.email
+		print(form.picture.data)
 		
 
 	posts = Post.query.filter_by(user_id= current_user.get_id()).all()

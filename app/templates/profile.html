@@ -27,7 +27,7 @@ padding: 4rem; margin: 2rem;">
 <div>
 	<h3 style="color: rgba(0,0,0,0.3);
 margin: 2rem;">Edit Profile</h3>
-    <form action="" method="post">
+    <form action="" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         <p>
             {{ form.firstname.label }}<br>
