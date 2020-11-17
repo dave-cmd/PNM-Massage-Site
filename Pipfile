@@ -10,6 +10,10 @@ flask = "*"
 flask-sqlalchemy = "*"
 gunicorn = "*"
 flask-wtf = "*"
+python-dotenv = "*"
+flask-migrate = "*"
+flask-login = "*"
+email-validator = "*"
 
 [requires]
 python_version = "3.8"

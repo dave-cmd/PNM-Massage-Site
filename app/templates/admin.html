@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<center>
+				<p style="padding: 2rem; color: blue;">{{message}}</p>
+			</center>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+<h1 style="color: rgba(0,0,0,0.3);, padding: 2rem;">Admin</h1>
+{% endblock %}
