@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% block content %}
+
+
+<div class="content-section">
+    <form method="POST" action="" class="form-gallery">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="legend">Reset Password</legend>
+            <div class="form-group">
+                {{ form.email.label(class="form-control-label") }}
+
+                {% if form.email.errors %}
+                    {{ form.email(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.email(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            
+            
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="gallery-submit") }}
+        </div>
+        <div class="form-group">
+            <small class="text-muted">
+                Don't have an Account? <a href="{{ url_for('registration') }}">Register</a>
+            </small>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

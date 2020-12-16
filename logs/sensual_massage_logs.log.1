@@ -1,0 +1,87 @@
+2020-12-15 02:13:26,543 ERROR: Exception on /home [GET] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 42, in home
+    return render_template('home.html', title="Home Page", user=user,)
+NameError: name 'user' is not defined
+2020-12-15 02:14:03,309 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-15 02:15:13,881 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 01:41:07,484 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 03:31:28,055 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 03:31:45,058 ERROR: Exception on /login [GET] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 70, in login
+    return render_template('login.html', title="Login Page", form=form)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/templating.py", line 137, in render_template
+    return _render(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/jinja2/environment.py", line 1090, in render
+    self.environment.handle_exception()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/jinja2/environment.py", line 832, in handle_exception
+    reraise(*rewrite_traceback_stack(source=source))
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/jinja2/_compat.py", line 28, in reraise
+    raise value.with_traceback(tb)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/templates/login.html", line 1, in top-level template code
+    {% extends 'base.html'%}
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/templates/base.html", line 68, in top-level template code
+    {% block content %}
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/templates/login.html", line 64, in block "content"
+    Forgot Password? <a href="{{url_for('reset_password_request')}}">Recover</a>
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/helpers.py", line 370, in url_for
+    return appctx.app.handle_url_build_error(error, endpoint, values)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 2216, in handle_url_build_error
+    reraise(exc_type, exc_value, tb)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/helpers.py", line 357, in url_for
+    rv = url_adapter.build(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/werkzeug/routing.py", line 2179, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.BuildError: Could not build url for endpoint 'reset_password_request'. Did you mean 'reset_request' instead?
+2020-12-16 03:33:03,192 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 03:57:39,287 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 04:32:50,272 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 04:35:32,107 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 04:38:03,063 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 04:39:11,514 ERROR: Exception on /reset_password [POST] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 211, in reset_request
+    send_reset_email()
+TypeError: send_reset_email() missing 1 required positional argument: 'user'
+2020-12-16 04:41:19,987 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]

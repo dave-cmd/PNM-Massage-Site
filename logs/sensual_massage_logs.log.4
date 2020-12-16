@@ -1,0 +1,102 @@
+2020-12-15 02:03:16,274 ERROR: Exception on /home [GET] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: post
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 37, in home
+    posts = Post.query.order_by(Post.timestamp).all()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3373, in all
+    return list(self)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: post
+[SQL: SELECT post.id AS post_id, post.body AS post_body, post.timestamp AS post_timestamp, post.user_id AS post_user_id 
+FROM post ORDER BY post.timestamp]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2020-12-15 02:03:20,478 ERROR: Exception on /home [GET] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: post
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 37, in home
+    posts = Post.query.order_by(Post.timestamp).all()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3373, in all
+    return list(self)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
+    return self._execute_and_instances(context)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3560, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: post
+[SQL: SELECT post.id AS post_id, post.body AS post_body, post.timestamp AS post_timestamp, post.user_id AS post_user_id 
+FROM post ORDER BY post.timestamp]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)

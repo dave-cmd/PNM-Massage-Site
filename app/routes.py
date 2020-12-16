@@ -1,16 +1,19 @@
-from app import app, db
+from app import app, db, mail
 from app.models import User, Post
 
-from app.forms import LoginForm, RegistrationForm, UpdateForm
+from app.forms import LoginForm, RegistrationForm, UpdateForm, RequestResetForm, ResetPasswordForm
 from flask import render_template, url_for, redirect,jsonify, flash, request
 from flask_login import login_user,logout_user,  current_user, login_required
 from werkzeug.urls import url_parse
 import secrets
 from PIL import Image
 import os
+from flask_mail import Message
 
 
-@app.route("/terms-and-conditions")
+
+
+@app.route("/terms")
 def terms():
     return render_template("terms.html",title="Terms Page")
 
@@ -21,6 +24,7 @@ def packages():
 @app.route('/')
 @app.route('/home')
 def home():
+	"""
 	if current_user.is_authenticated:
 		user= {
 		'username': User.query.get(current_user.get_id()).lastname,
@@ -34,8 +38,9 @@ def home():
 
 	posts = Post.query.order_by(Post.timestamp).all()
 	print(posts)
+	"""
 
-	return render_template('home.html', title="Home Page", user=user, posts=posts)
+	return render_template('home.html', title="Home Page")
 
 
 
@@ -65,7 +70,6 @@ def login():
 
 	return render_template('login.html', title="Login Page", form=form)
 
-
 @app.route('/logout')
 @login_required
 def logout():
@@ -84,7 +88,7 @@ def admin():
 	user_id = current_user.get_id()
 	user = User.query.get(user_id)
 
-	if user.email != "kanjurus30@gmail.com":
+	if user.email != app.config['ADMINISTRATOR_MAIL']:
 		return redirect(url_for("home"))
 
 	flash("Welcome Administrator!")
@@ -107,10 +111,20 @@ def registration():
 
 		db.session.add(user)
 		db.session.commit()
+		flash('Registration successful.')
 
 		return redirect(url_for('login'))
 
 	return render_template("registration.html", title="Registration Page", form = form)
+
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    return render_template('500.html'), 500
 
 
 #Save profile picture logic
@@ -139,7 +153,7 @@ def profile():
 	if form.validate_on_submit():
 
 		if form.picture.data:
-			flash("Picture Data Available!!")
+			#flash("Picture Data Available!!")
 			picture_file = save_picture(form.picture.data)
 			current_user.image_pic = picture_file
 
@@ -149,7 +163,7 @@ def profile():
 		current_user.phone_number = form.phone_number.data
 		db.session.commit()
 
-		flash("Profile Information Updated!")
+		flash("Profile updated!")
 		return redirect(url_for('profile'))
 	elif request.method == 'GET':
 
@@ -169,9 +183,54 @@ def profile():
 
 
 
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+	return render_template('about.html', title='About Page')
+	
+
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+	return render_template('contact.html', title='Contact Page')
+
+	
+def send_reset_email(user):
+	token = user.get_reset_token()
+	msg = Message('Password Reset Request', sender='artmanafrica.com', recipients=[user.email])
+	msg.body = f'''To reset your password, visit the following link: {url_for('reset_token', token=token, _external=True)}
+	If you did not make this request then simply ignore this message and no changes will be made.
+	'''
+	mail.send(msg)
+
+@app.route('/reset_password', methods=['GET', 'POST'])
+def reset_request():
+	if current_user.is_authenticated:
+		return redirect(url_for('home'))
+	form = RequestResetForm()
+	if form.validate_on_submit():
+		user = User.query.filter_by(email=form.email.data).first()
+		send_reset_email(user)
+		flash('Check your email for instructions to reset your password.')
+		return redirect(url_for('login'))
+	return render_template('reset_request.html',title='Reset Password', form=form)
 
 
 
+@app.route('/reset_password/<token>', methods=['GET', 'POST'])
+def reset_token(token):
+	if current_user.is_authenticated:
+		return redirect(url_for('home'))
+	user = User.verify_token(token)
+	if user is None:
+		flask('This is an expired or invalid token.')
+		return redirect(url_for('reset_request'))
+	form = ResetPasswordForm()
+	if form.validate_on_submit():
+		user.set_password(form.password.data)
+		db.session.commit()
+		flash('Password updated successfully.')
+		return redirect(url_for('login'))
+	return render_template('reset_token.html', form=form, title='Reset Password ')
+	
 
 
 

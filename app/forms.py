@@ -9,7 +9,7 @@ from app.models import User, Post
 
 class LoginForm(FlaskForm):
 	email = StringField('Email', validators=[DataRequired(), Email()])
-	password = EmailField('Password', validators=[DataRequired()])
+	password = PasswordField('Password', validators=[DataRequired()])
 	remember_me = BooleanField('Remember Me')
 	submit = SubmitField('Sign In')
 
@@ -45,6 +45,20 @@ class UpdateForm(FlaskForm):
 
 			if user is not None:
 				raise ValidationError("This email is taken, use a different one.")
+
+
+class RequestResetForm(FlaskForm):
+	email = EmailField('Email', validators=[DataRequired(), Email()])
+	submit = SubmitField('Request Password Reset')
+	def validate_email(self, email):
+		user = User.query.filter_by(email=email.data).first()
+		if user is None:
+			raise ValidationError('An account does not exist with that email. Resgister first.')
+
+class ResetPasswordForm(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Reset Password')
 
 
 

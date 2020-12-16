@@ -1,0 +1,61 @@
+2020-12-16 04:41:25,876 ERROR: Exception on /reset_password [POST] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 211, in reset_request
+    send_reset_email(user)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 197, in send_reset_email
+    token = user.get_reset_token()
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/models.py", line 34, in get_reset_token
+    return s.dumps({'user_id': self.user_id}).decode('utf-8')
+AttributeError: 'User' object has no attribute 'user_id'
+2020-12-16 04:42:16,920 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 04:42:50,807 ERROR: Exception on /reset_password [POST] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 211, in reset_request
+    send_reset_email(user)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 199, in send_reset_email
+    msg.body = f'''To reset your password, visit the following link: {url_for('reset_token', token, _external=True)}
+TypeError: url_for() takes 1 positional argument but 2 were given
+2020-12-16 04:44:51,760 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 04:45:59,854 ERROR: Exception on /reset_password/eyJhbGciOiJIUzUxMiIsImlhdCI6MTYwODExMTkwNSwiZXhwIjoxNjA4MTEzNzA1fQ.eyJ1c2VyX2lkIjoxfQ.e5h6vgRdJc_750hdmoGjlmJbL2ci8tqEZ1-qg1M1Xj6VAYmsxEbKV2b-YIX7QePhjF50xH_yJSlEQFBjOofFxQ [GET] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 222, in reset_token
+    user = User.verify_reset_token(token)
+AttributeError: type object 'User' has no attribute 'verify_reset_token'
+2020-12-16 04:47:32,070 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
+2020-12-16 04:49:21,723 INFO: Sensual Massage-INFO [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]

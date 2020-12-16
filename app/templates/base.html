@@ -1,70 +1,83 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
-    <script src="{{ url_for('static',filename='js/main.js') }}" defer></script>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     {% if title %}
-        <title>{{title}}</title>
+    <title>Sensual Massage - {{title}}</title>
     {% else %}
-        <title>Title not set</title>
+    <title>Sensual Massage</title>
     {% endif %}
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" /> 
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />  
+	<link href="{{ url_for('static', filename='css/templatemo-style.css') }}" rel="stylesheet" />
+	<link href="{{url_for( 'static', filename ='css/all.min.css')}}" rel="stylesheet" />
+	<link href="{{url_for ('static', filename = 'css/templatemo-style.css')}}" rel="stylesheet" />
+
+
 </head>
+<!--
 
-<body>
-    <!--Navbar-->
-    <div class="navbar">
-        <div class="brand-name">Sensual Massage</div>
-        <a href="#" class="toogle-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </a>
-        <div class="navbar-links">
-            <ul>
-                <li><a href="{{url_for('home')}}">Home</a></li>
-                <li><a href="{{url_for('packages')}}">Packages</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="{{url_for('profile')}}">Profile</a></li>
+Sensual Massage
 
-                {% if current_user.is_anonymous %}
-                <li><a href="{{url_for('login')}}" style="color: red;">Login</a></li>
-                {% else %}
-                <li><a href="{{url_for('logout')}}">Logout</a></li>
-                {% endif %}
+-->
+<body> 
 
+	
+	
+	<div class="container">
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="static/img/massage_cover.jpg">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+							<img src="{{url_for('static', filename='img/simple-house-logo.png')}}" alt="Logo" class="tm-site-logo" /> 
+							<div class="tm-site-text-box">
+								<h1 class="tm-site-title">Sensual Massage</h1>
+								<h6 class="tm-site-description">The attention your body seeks</h6>	
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<li class="tm-nav-li"><a href="{{url_for('home')}}" class="tm-nav-link ">Home</a></li>
+								<li class="tm-nav-li"><a href="{{url_for('about')}}" class="tm-nav-link">About</a></li>
+								<li class="tm-nav-li"><a href="{{url_for('contact')}}" class="tm-nav-link">Contact</a></li>
+								<li class="tm-nav-li"><a href="{{url_for('profile')}}" class="tm-nav-link">Profile</a></li>
+								{% if current_user.is_authenticated %}
+									<li class="tm-nav-li"><a href="{{url_for('logout')}}" class="tm-nav-link">Logout</a></li>
+								{% elif current_user.is_anonymous %}
+								<li class="tm-nav-li"><a href="{{url_for('login')}}" class="tm-nav-link">Login</a></li>
+								{% endif %}
+							</ul>
+						</nav>	
+					</div>
+				</div>
+			</div>
+		</div>
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages %}
+					<div class="toaster">
+						<p class="toast">{{message}}</p>
+					</div>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+        {% block content %}
+        {% endblock %}
 
-            </ul>
-        </div>
-    </div>
-{% block content %}
-{% endblock %}
-    <!--Footer-->
-    <div class="footer">
-        <div class="footer-container">
-            <div class="footer-card">
-                <h3 class="footer-title">Personal</h3>
-                <a href="#">Pricing</a>
-                <a href="#">Privacy & safety</a>
-                <a href="#">Gifts</a>
-                <a href="{{url_for('terms')}}">Terms & Conditions</a>
-   
-            </div>
-        </div>
-        <div class="footer-social">
-           <a href="#"><img src="{{url_for('static', filename='icons/facebook.png')}}"></a>
-           <a href="#"><img src="{{url_for('static', filename='icons/twitter.png')}}"></a>
-           <a href="#"><img src="{{url_for('static', filename='icons/youtube.png')}}"></a>
-           <a href="#"><img src="{{url_for('static', filename='icons/linkedin.png')}}"></a>
-           <a href="#"><img src="{{url_for('static', filename='icons/instagram.png')}}"></a>
+		<footer class="tm-footer text-center">
+			<p>Copyright &copy; 2020 Sensual Massage 
             
-        </div>
-        <hr>
-        <div class="footer-copyright">Copyright 2020, Sensual Massage, Inc</div>
-      </div>
+            | Design: <a rel="nofollow" href=#>Devphase254-Developers</a></p>
+		</footer>
+	</div>
+	<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+	<script src="{{url_for('static', filename='js/parallax.min.js')}}"></script>
+	<script src="{{url_for('static', filename='js/main.js')}}"></script>
 
-    
+
 </body>
 </html>
