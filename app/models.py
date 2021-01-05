@@ -47,7 +47,8 @@ class User(UserMixin, db.Model):
 
 class Post(db.Model):
 	id = db.Column(db.Integer(), primary_key=True)
-	body = db.Column(db.String(200))
+	massage = db.Column(db.String(200))
+	scheduled_on = db.Column(db.DateTime, index= True)
 	timestamp = db.Column(db.DateTime, index= True, default=datetime.utcnow)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 

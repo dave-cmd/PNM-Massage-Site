@@ -1,10 +1,10 @@
-2020-12-14 07:09:28,770 ERROR: Exception on /login [POST] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+2020-12-15 02:03:02,567 ERROR: Exception on /home [GET] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
     self.dialect.do_execute(
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
     cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
+sqlite3.OperationalError: no such table: post
 
 The above exception was the direct cause of the following exception:
 
@@ -21,12 +21,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 53, in login
-    user = User.query.filter_by(email = form.email.data).first()
-  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3429, in first
-    ret = list(self[0:1])
-  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3203, in __getitem__
-    return list(res)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 37, in home
+    posts = Post.query.order_by(Post.timestamp).all()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3373, in all
+    return list(self)
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
     return self._execute_and_instances(context)
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3560, in _execute_and_instances
@@ -47,21 +45,17 @@ Traceback (most recent call last):
     self.dialect.do_execute(
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.firstname AS user_firstname, user.lastname AS user_lastname, user.image_pic AS user_image_pic, user.phone_number AS user_phone_number, user.email AS user_email, user.password_hash AS user_password_hash 
-FROM user 
-WHERE user.email = ?
- LIMIT ? OFFSET ?]
-[parameters: ('kanjurus30@gmail.com', 1, 0)]
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: post
+[SQL: SELECT post.id AS post_id, post.body AS post_body, post.timestamp AS post_timestamp, post.user_id AS post_user_id 
+FROM post ORDER BY post.timestamp]
 (Background on this error at: http://sqlalche.me/e/13/e3q8)
-2020-12-15 02:02:08,687 INFO: Sensual Masage [in /home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/__init__.py:60]
-2020-12-15 02:02:32,108 ERROR: Exception on /reset_password_request [POST] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
+2020-12-15 02:03:09,310 ERROR: Exception on /home [GET] [in /home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
     self.dialect.do_execute(
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
     cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
+sqlite3.OperationalError: no such table: post
 
 The above exception was the direct cause of the following exception:
 
@@ -78,12 +72,10 @@ Traceback (most recent call last):
     rv = self.dispatch_request()
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
     return self.view_functions[rule.endpoint](**req.view_args)
-  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 200, in reset_password_request
-    user = User.query.filter_by(email=form.email.data).first()
-  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3429, in first
-    ret = list(self[0:1])
-  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3203, in __getitem__
-    return list(res)
+  File "/home/crispin/Documents/Python_projects/PacksonNjauMwangi/app/routes.py", line 37, in home
+    posts = Post.query.order_by(Post.timestamp).all()
+  File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3373, in all
+    return list(self)
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
     return self._execute_and_instances(context)
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/orm/query.py", line 3560, in _execute_and_instances
@@ -104,10 +96,7 @@ Traceback (most recent call last):
     self.dialect.do_execute(
   File "/home/crispin/.local/share/virtualenvs/PacksonNjauMwangi-ZHoZ6FpG/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.firstname AS user_firstname, user.lastname AS user_lastname, user.image_pic AS user_image_pic, user.phone_number AS user_phone_number, user.email AS user_email, user.password_hash AS user_password_hash 
-FROM user 
-WHERE user.email = ?
- LIMIT ? OFFSET ?]
-[parameters: ('devphase254@gmail.com', 1, 0)]
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: post
+[SQL: SELECT post.id AS post_id, post.body AS post_body, post.timestamp AS post_timestamp, post.user_id AS post_user_id 
+FROM post ORDER BY post.timestamp]
 (Background on this error at: http://sqlalche.me/e/13/e3q8)

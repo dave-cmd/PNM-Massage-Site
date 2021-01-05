@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, BooleanField, StringField, SubmitField, IntegerField
-from wtforms.fields.html5 import EmailField
+from wtforms import StringField, PasswordField, BooleanField, StringField, SubmitField, IntegerField, SelectField
+from wtforms.fields.html5 import EmailField, DateField
 from wtforms.validators import DataRequired, Email, ValidationError, EqualTo
 from flask_login import current_user
 
@@ -60,7 +60,10 @@ class ResetPasswordForm(FlaskForm):
     password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Reset Password')
 
-
+class BookMassageForm(FlaskForm):
+	massage = SelectField('Massage Selection', validators=[DataRequired()], choices=[('Swedish Massage', 'SWEDISH MASSAGE'), ('Sports Massage', 'SPORTS MASSAGE'), ('Trigger Point Massage', 'TRIGGER POINT MASSAGE'), ('Deep Tissue Massage', 'DEEP TISSUE MASSAGE'), ('Reflexology Massage','REFLEXOLOGY MASSAGE'), ('Shiatsu Massage','SHIATSU MASSAGE'), ('Thai Massage', 'THAI MASSAGE'), ('Prenatal Massage', 'PRENATAL MASSAGE'),('Couples Massage','COUPLES MASSAGE'), ('Chair Massage', 'CHAIR MASSAGE')])
+	scheduled_on = DateField('Scheduled_on', format='%Y-%m-%d', validators=[DataRequired()])
+	submit = SubmitField('Book Now') 
 
 
 

@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <header class="row tm-welcome-section">
+        <h2 class="col-12 text-center tm-section-title">Swedish Massage</h2>
+        <p class="col-12 text-center">This Swedish massage therapy is a very popular type of massage  therapt. 
+            It involves soft, long, kneading strokes, as well as light, rhythmic, tapping strokes, on topmost layers of muscles. 
+            This is also combined with movement of the joints. By relieving muscle tension, Swedish therapy can be both relaxing and energizing. 
+            And it may even help after an injury.</p>
+    </header>
+
+    <div class="tm-container-inner tm-featured-image">
+        <div class="row">
+            <div class="col-12">
+                <div class="placeholder-2">
+                    <div class="parallax-window-2" data-parallax="scroll" data-image-src="{{url_for( 'static', filename='img/about-05.jpg')}}"></div>		
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tm-container-inner tm-features">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="tm-feature">
+                    <i class="fas fa-4x fa-pepper-hot tm-feature-icon"></i>
+                    <h4 class="tm-history-title">Effleurage</h4>
+                    <p class="tm-feature-description">Swedish Massage Therapy involves a smooth gliding stroke that is designed to relax soft tissue though out the body.</p>
+                    <a href="index.html" class="tm-btn tm-btn-primary">Read More</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="tm-feature">
+                    <i class="fas fa-4x fa-seedling tm-feature-icon"></i>
+                    <h4 class="tm-history-title">Petrissage</h4>
+                    <p class="tm-feature-description">Swedish Massage Therapy also entials squeezing, rolling, or kneading that follows effleurage</p>
+                    <a href="index.html" class="tm-btn tm-btn-success">Read More</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="tm-feature">
+                    <i class="fas fa-4x fa-cocktail tm-feature-icon"></i>
+                    <h4 class="tm-history-title">Friction</h4>
+                    <p class="tm-feature-description">Deep and circular masasge movements help increase blood flow and break down scar tissue.</p>
+                    <a href="index.html" class="tm-btn tm-btn-danger">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tm-container-inner tm-history">
+        <div class="row">
+            <div class="col-12">
+                <div class="tm-history-inner">
+                    <img src="{{url_for( 'static', filename='img/about-06.jpg')}}" alt="Image" class="img-fluid tm-history-img" />
+                    <div class="tm-history-text"> 
+                        <h4 class="tm-history-title">Overview</h4>
+                        <p class="tm-mb-p">Swedish massage is a gentle type of full-body massage that’s ideal for people who are are new to massage, 
+                            have alot of  tension and are sensitive to touch. For this massage, you’ll remove your clothes, though you may choose to keep your underwear on. You’ll be covered with a sheet while lying on the massage table. The massage therapist will move the sheet to uncover areas that they are actively working on. </p>
+                    </div>
+                </div>	
+            </div>
+        </div>
+    </div>
+    <!-- CONTACT -->
+    <br>
+    <div class="page-section" id="contact">
+        <div class="tab">
+            <div class="col-md-12">
+                <h4 class="tm-history-title">Book a massage with Zawadi</h4>
+                <p class="tm-mb-p">Booking a massage is easy with Zawadi. Fill out the form below and a Zawadi agent will contact you shortly. Usually a Swedish massage will last for 60–90 minutes. </p>
+            </div>
+        </div>
+        <div class="content-section">
+            <form method="POST" action="" class="form-gallery">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                    <legend class="legend">Massage Form</legend>
+                    <div class="form-group">
+                        <!--
+                        {{ form.massage.label(class="form-control-label") }}
+                        -->
+        
+                        {% if form.massage.errors %}
+                            {{ form.massage(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.massage.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.massage(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <!--
+                        {{ form.scheduled_on.label(class="form-control-label") }}
+                        -->
+        
+                        {% if form.scheduled_on.errors %}
+                            {{ form.scheduled_on(class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.scheduled_on.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.scheduled_on(class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                    
+                    
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="gallery-submit") }}
+                </div>
+                <div class="form-group">
+                    <small class="text-muted">
+                        By booking, you have accepted Zawadi <a href="{{ url_for('terms') }}">Terms and Conditions</a>
+                    </small>
+                </div>
+    
+            </form>
+</main>
+{% endblock %}
+
+

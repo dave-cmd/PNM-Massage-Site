@@ -17,6 +17,7 @@ email-validator = "*"
 pillow = "*"
 pyjwt = "*"
 flask-mail = "*"
+flask-datepicker = "*"
 
 [requires]
 python_version = "3.8"

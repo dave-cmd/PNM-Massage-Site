@@ -1,7 +1,7 @@
 from app import app, db, mail
 from app.models import User, Post
 
-from app.forms import LoginForm, RegistrationForm, UpdateForm, RequestResetForm, ResetPasswordForm
+from app.forms import LoginForm, RegistrationForm, UpdateForm, RequestResetForm, ResetPasswordForm, BookMassageForm
 from flask import render_template, url_for, redirect,jsonify, flash, request
 from flask_login import login_user,logout_user,  current_user, login_required
 from werkzeug.urls import url_parse
@@ -16,10 +16,6 @@ from flask_mail import Message
 @app.route("/terms")
 def terms():
     return render_template("terms.html",title="Terms Page")
-
-@app.route("/packages")
-def packages():
-    return render_template("packages.html", title="Packages Page")
 
 @app.route('/')
 @app.route('/home')
@@ -146,7 +142,7 @@ def save_picture(form_picture):
 @login_required
 def profile():
 	if not current_user.is_authenticated:
-		return redirect('login')
+		return redirect(url_for("login"))
 
 	form = UpdateForm()
 
@@ -221,7 +217,7 @@ def reset_token(token):
 		return redirect(url_for('home'))
 	user = User.verify_token(token)
 	if user is None:
-		flask('This is an expired or invalid token.')
+		flash('This is an expired or invalid token.')
 		return redirect(url_for('reset_request'))
 	form = ResetPasswordForm()
 	if form.validate_on_submit():
@@ -231,8 +227,20 @@ def reset_token(token):
 		return redirect(url_for('login'))
 	return render_template('reset_token.html', form=form, title='Reset Password ')
 	
+@app.route('/swedish', methods=['GET', 'POST'])
+@login_required
+def swedish():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
 
-
-
-
-
+	return render_template('swedish.html', form=form, title= "Swedish Massage")
