@@ -244,3 +244,176 @@ def swedish():
 		flash(f"{massage} booked on {scheduled_on}.")
 
 	return render_template('swedish.html', form=form, title= "Swedish Massage")
+
+@app.route('/sports', methods=['GET', 'POST'])
+@login_required
+def sports():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
+
+	return render_template('sports.html', form=form, title= "Sports Massage")
+
+
+@app.route('/deep_tissue', methods=['GET', 'POST'])
+@login_required
+def deep_tissue():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
+
+	return render_template('deep_tissue.html', form=form, title= "Deep Tissue Massage")
+
+
+@app.route('/reflexology', methods=['GET', 'POST'])
+@login_required
+def reflexology():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
+
+	return render_template('reflexology.html', form=form, title= "Reflexology Massage")
+
+
+
+@app.route('/shiatsu', methods=['GET', 'POST'])
+@login_required
+def shiatsu():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
+
+	return render_template('shiatsu.html', form=form, title= "Shiatsu Massage")
+
+
+
+@app.route('/thai', methods=['GET', 'POST'])
+@login_required
+def thai():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
+
+	return render_template('thai.html', form=form, title= "Thai Massage")
+
+@app.route('/prenatal', methods=['GET', 'POST'])
+@login_required
+def prenatal():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
+
+	return render_template('prenatal.html', form=form, title= "Prenatal Massage")
+
+
+@app.route('/couples', methods=['GET', 'POST'])
+@login_required
+def couples():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
+
+	return render_template('couples.html', form=form, title= "Couples Massage")
+
+
+@app.route('/chair', methods=['GET', 'POST'])
+@login_required
+def chair():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
+
+	return render_template('chair.html', form=form, title= "Chair Massage")
+
+@app.route('/stone', methods=['GET', 'POST'])
+@login_required
+def stone():
+	if not current_user.is_authenticated:
+		return redirect(url_for('login'))
+	form = BookMassageForm()
+	if form.validate_on_submit() and current_user.is_authenticated:
+		massage = form.massage.data
+		scheduled_on = form.scheduled_on.data
+		user_id = current_user.id
+		booking = Post(massage=massage, scheduled_on=scheduled_on, user_id= user_id)
+		
+		db.session.add(booking)
+		db.session.commit()
+		flash(f"{massage} booked on {scheduled_on}.")
+
+	return render_template('stone.html', form=form, title= "Hot Stone Massage")
+
+
+
